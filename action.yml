@@ -1,0 +1,23 @@
+name: 'Stream Deck Distribution Tool'
+author: 'AdamCarballo'
+branding:
+  icon: 'layers'
+  color: 'blue'
+description: 'DESCRIPTION'
+inputs:
+  input:
+    description: 'DESCRIPTION'
+    required: true
+  output:
+    description: 'DESCRIPTION'
+    required: false
+    default: ''
+runs:
+  using: "composite"
+  steps: 
+    - run: ${{ github.action_path }}\DistributionTool.exe -b -i ${{ github.workspace }}\${{ inputs.input }} -o ${{ github.workspace }}\${{ inputs.output }}
+      if: runner.os == "Windows"
+      shell: bash
+    - run: ${{ github.action_path }}\DistributionTool -b -i ${{ github.workspace }}/${{ inputs.input }} -o ${{ github.workspace }}/${{ inputs.output }}
+      if: runner.os == "macOS"
+      shell: bash
