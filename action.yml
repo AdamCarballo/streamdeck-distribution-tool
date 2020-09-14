@@ -3,17 +3,17 @@ author: 'AdamCarballo'
 branding:
   icon: 'layers'
   color: 'blue'
-description: 'DESCRIPTION'
+description: 'Export a Stream Deck plugin for distribution'
 inputs:
   input:
-    description: 'DESCRIPTION'
+    description: 'Source files directory path'
     required: true
   output:
-    description: 'DESCRIPTION'
+    description: 'Exported plugin directory path'
     required: false
-    default: ''
+    default: '/'
 runs:
   using: "composite"
-  steps: 
-    - run: ${{ github.action_path }}/main.sh ${{ inputs.input }} ${{ inputs.output }} ${{ github.workspace }} ${{ runner.os }}
+  steps:
+    - run: $GITHUB_ACTION_PATH/main.sh ${{ inputs.input }} ${{ inputs.output }} ${{ runner.os }}
       shell: bash

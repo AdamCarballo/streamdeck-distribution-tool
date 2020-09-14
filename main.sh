@@ -2,19 +2,15 @@
 
 # $1 = input path
 # $2 = output path
-# $3 = workspace path
-# $4 = runtime OS
+# $3 = runtime OS
 
-echo "$3/$1"
-echo "$3/$2"
-
-if [ $4 == "Windows" ]
+if [[ $3 == "Windows" ]]
 then
-	DistributionTool.exe -b -i "$3/$1" -o "$3/$2"
-elif [ $4 == "macOS" ]
+	$GITHUB_ACTION_PATH/DistributionTool.exe -b -i "$GITHUB_WORKSPACE\\$1" -o "$GITHUB_WORKSPACE\\$2"
+elif [[ $3 == "macOS" ]]
 then
-   	./DistributionTool -b -i "$3/$1" -o "$3/$2"
+   	$GITHUB_ACTION_PATH/./DistributionTool -b -i "$GITHUB_WORKSPACE/$1" -o "$GITHUB_WORKSPACE/$2"
 else
-  	echo "StreamDeck only supports Windows or MacOS"
+  	echo "StreamDeck Distribution Tool only has binaries for Windows or MacOS."
   	exit 1
 fi
