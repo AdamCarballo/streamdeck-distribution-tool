@@ -32,7 +32,6 @@ Exported plugin directory path.
 
 - **Required**: No
 - **Default**: / *(`$GITHUB_WORKSPACE`)*
-___
 
 Legal
 ------
