@@ -27,7 +27,6 @@ release
   with:
     input: com.company.plugin_name.sdPlugin
     output: release
-    working-directory: .
 ```
 This example will take the contents of the `com.company.plugin_name.sdPlugin` folder and export the plugin into the `release` directory.
 
