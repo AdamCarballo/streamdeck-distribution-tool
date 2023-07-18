@@ -14,6 +14,7 @@ Usage
   with:
     input: com.company.plugin_name.sdPlugin
     output: release
+    working-directory: .
 ```
 This example will take the contents of the `com.company.plugin_name.sdPlugin` folder and export the plugin into the `release` directory.
 
@@ -32,6 +33,12 @@ Exported plugin directory path.
 
 - **Required**: No
 - **Default**: / *(`$GITHUB_WORKSPACE`)*
+
+#### `working-directory`
+Working directory path. Relative to the value of `$GITHUB_WORKSPACE`. If not set, the action will assume the `.sdPlugin` folder is in the root of the repository.
+
+- **Required**: No
+- **Default**: . *(No effect)*
 
 Legal
 ------
