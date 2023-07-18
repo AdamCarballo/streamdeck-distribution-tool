@@ -11,7 +11,7 @@ inputs:
   output:
     description: 'Exported plugin directory path'
     required: false
-    default: '/'
+    default: '.'
   working-directory:
     description: 'Directory .sdPlugin directory is in, relative to GITHUB_WORKSPACE'
     required: false

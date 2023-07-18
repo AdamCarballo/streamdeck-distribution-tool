@@ -69,7 +69,7 @@ Source files directory path.<br>
 Exported plugin directory path. Use relative paths from the directory `$GITHUB_WORKSPACE`/`working-directory`. If omitted, the action will default to outputting the plugin file in the same directory as the source folder.
 
 - **Required**: No
-- **Default**: / *(`$GITHUB_WORKSPACE`/`working-directory`)*
+- **Default**: . *(`$GITHUB_WORKSPACE`/`working-directory`)*
 
 #### `working-directory`
 Working directory path. Relative to the value of `$GITHUB_WORKSPACE`. If not set, the action will assume the `.sdPlugin` folder is in the root of the repository.

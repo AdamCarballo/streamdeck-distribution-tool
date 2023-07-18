@@ -9,6 +9,7 @@ if [[ $3 == "Windows" ]]
 then
 	cd $GITHUB_WORKSPACE\\$4
 	$GITHUB_ACTION_PATH/DistributionTool.exe -b -i "$1" -o "$2"
+	echo "$(PWD)"
 elif [[ $3 == "macOS" ]]
 then
 	cd $GITHUB_WORKSPACE/$4
