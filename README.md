@@ -8,6 +8,19 @@ For the `DistributionTool` to find the inputted directory path, the environment 
 
 Usage
 -----
+## Simple Example
+
+### Folder Structure:
+```
+.github
+  - workflows
+    - your_workflow.yml
+com.company.plugin_name.sdPlugin
+  - <your plugin files>
+release
+```
+
+### Workflow Step:
 ```
 - name: StreamDeck Distribution Tool
   uses: AdamCarballo/streamdeck-distribution-tool@v1
@@ -17,6 +30,30 @@ Usage
     working-directory: .
 ```
 This example will take the contents of the `com.company.plugin_name.sdPlugin` folder and export the plugin into the `release` directory.
+
+## Complex Example
+
+### Folder Structure:
+```
+.github
+  - workflows
+    - your_workflow.yml
+plugin
+  - com.company.plugin_name.sdPlugin
+    - <your plugin files>
+release
+```
+
+### Workflow Step:
+```
+- name: StreamDeck Distribution Tool
+  uses: AdamCarballo/streamdeck-distribution-tool@v1
+  with:
+    input: com.company.plugin_name.sdPlugin
+    output: ../release
+    working-directory: plugin
+```
+This example shows how to use the `working-directory` input when the plugin source files are not in the root of the repository. In addition, the `output` directory is set to `../release` to export the plugin into the `release` directory, to show how to use relative paths, including parent directories.
 
 The `DistributionTool` requires both directories to exist (*it can't create directories*) and it must be run in a Windows or MacOS machine. **Linux (*`ubuntu-latest`, etc.*) is not supported**.
 
@@ -29,7 +66,7 @@ Source files directory path.<br>
 - **Required**: Yes
 
 #### `output`
-Exported plugin directory path. Takes into account the value of `$GITHUB_WORKSPACE` and `working-directory`.
+Exported plugin directory path. Use relative paths from the directory `$GITHUB_WORKSPACE`/`working-directory`. If omitted, the action will default to outputting the plugin file in the same directory as the source folder.
 
 - **Required**: No
 - **Default**: / *(`$GITHUB_WORKSPACE`/`working-directory`)*
