@@ -11,9 +11,13 @@ inputs:
   output:
     description: 'Exported plugin directory path'
     required: false
-    default: '/'
+    default: '.'
+  working-directory:
+    description: 'Directory .sdPlugin directory is in, relative to GITHUB_WORKSPACE'
+    required: false
+    default: '.'
 runs:
   using: "composite"
   steps:
-    - run: $GITHUB_ACTION_PATH/main.sh ${{ inputs.input }} ${{ inputs.output }} ${{ runner.os }}
+    - run: $GITHUB_ACTION_PATH/main.sh ${{ inputs.input }} ${{ inputs.output }} ${{ runner.os }} ${{ inputs.working-directory }}
       shell: bash
