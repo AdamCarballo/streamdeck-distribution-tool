@@ -29,10 +29,10 @@ Source files directory path.<br>
 - **Required**: Yes
 
 #### `output`
-Exported plugin directory path.
+Exported plugin directory path. Takes into account the value of `$GITHUB_WORKSPACE` and `working-directory`.
 
 - **Required**: No
-- **Default**: / *(`$GITHUB_WORKSPACE`)*
+- **Default**: / *(`$GITHUB_WORKSPACE`/`working-directory`)*
 
 #### `working-directory`
 Working directory path. Relative to the value of `$GITHUB_WORKSPACE`. If not set, the action will assume the `.sdPlugin` folder is in the root of the repository.
